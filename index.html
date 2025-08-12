@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Lomba Mobile Legends</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* ganti background jadi warna polos */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            zoom: 1.3;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .slot {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background: #28a745;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+        footer {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #555;
+        }
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Pendaftaran Lomba ML</h2>
+        <div class="slot">Slot Terbatas: Hanya 10 Tim!</div>
+        <form id="formPendaftaran">
+            <label>Nama Lengkap:</label>
+            <input type="text" id="nama" required>
+
+            <label>Nickname ML:</label>
+            <input type="text" id="nickname" required>
+
+            <label>ID Player:</label>
+            <input type="number" id="idPlayer" required>
+
+            <label>No. WhatsApp:</label>
+            <input type="tel" id="wa" required>
+
+            <label>Role Favorit:</label>
+            <select id="role" required>
+                <option value="">Pilih Role</option>
+                <option>Tank</option>
+                <option>Fighter</option>
+                <option>Mage</option>
+                <option>Marksman</option>
+                <option>Assassin</option>
+                <option>Support</option>
+            </select>
+
+            <button type="submit">Daftar Sekarang</button>
+        </form>
+        <footer>
+            <p>Instagram: <a href="https://www.instagram.com/grassgarden_official" target="_blank">@GRASSGARDEN_OFFICIAL</a></p>
+            <p>&copy; 2025 GRASS GARDEN Official</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('formPendaftaran').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let nama = document.getElementById('nama').value;
+            let nickname = document.getElementById('nickname').value;
+            let idPlayer = document.getElementById('idPlayer').value;
+            let wa = document.getElementById('wa').value;
+            let role = document.getElementById('role').value;
+
+            let pesan = `Halo, saya ingin mendaftar lomba Mobile Legends.%0A` +
+                        `Nama: ${nama}%0A` +
+                        `Nickname: ${nickname}%0A` +
+                        `ID Player: ${idPlayer}%0A` +
+                        `No. WA: ${wa}%0A` +
+                        `Role: ${role}`;
+
+            let url = `https://api.whatsapp.com/send?phone=+6285134334713&text=${pesan}`;
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
